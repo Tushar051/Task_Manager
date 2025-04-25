@@ -2,9 +2,7 @@ package com.Task_Tracker.Task_Tracker.domain.entities;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
@@ -61,18 +59,4 @@ public class Task {
         return Objects.hash(id, title, description, dueDate, status, priority, taskList, created, updated);
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", dueDate=" + dueDate +
-                ", status=" + status +
-                ", priority=" + priority +
-                ", taskList=" + taskList +
-                ", created=" + created +
-                ", updated=" + updated +
-                '}';
-    }
 }
