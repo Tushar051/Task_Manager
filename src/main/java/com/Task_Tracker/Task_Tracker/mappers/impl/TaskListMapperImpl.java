@@ -50,7 +50,7 @@ public class TaskListMapperImpl implements TaskListMapper {
                                 tasks.stream().map(taskMapper::toDto).toList()
                         ).orElse(null)
 
-        );
+       );
     }
 
     private Double calculateTaskListProgress(List<Task> tasks){
