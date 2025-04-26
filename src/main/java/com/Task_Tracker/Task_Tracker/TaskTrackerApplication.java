@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories(basePackages = "com.Task_Tracker.Task_Tracker.repository")
 @ComponentScan(basePackages = {"com.Task_Tracker.Task_Tracker.mapper"})
+@ComponentScan(basePackages = "com.Task_Tracker.Task_Tracker.controller")
 @SpringBootApplication
 public class TaskTrackerApplication {
 

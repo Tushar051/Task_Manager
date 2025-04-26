@@ -1,7 +1,6 @@
 package com.Task_Tracker.Task_Tracker.domain.entities;
 
 import jakarta.annotation.Nonnull;
-import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.annotation.Collation;

@@ -1,6 +1,5 @@
-package com.Task_Tracker.Task_Tracker.Services;
+package com.Task_Tracker.Task_Tracker.services;
 
-import com.Task_Tracker.Task_Tracker.domain.entities.Task;
 import com.Task_Tracker.Task_Tracker.dto.TaskDto;
 import org.bson.types.ObjectId;
 
