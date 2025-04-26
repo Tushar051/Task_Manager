@@ -1,0 +1,16 @@
+#spring.datasource.url=jdbc:postgresql://db:5432/task_tracker
+#spring.datasource.username=postgres
+#spring.datasource.password=changemeinprod!
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/task_tracker
+      auto-index-creation: true
+
+  server:
+    port: 8000

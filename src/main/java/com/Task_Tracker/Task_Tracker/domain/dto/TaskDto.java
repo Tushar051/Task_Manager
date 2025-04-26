@@ -2,14 +2,12 @@ package com.Task_Tracker.Task_Tracker.domain.dto;
 
 import com.Task_Tracker.Task_Tracker.domain.entities.TaskPriority;
 import com.Task_Tracker.Task_Tracker.domain.entities.TaskStatus;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
+import org.bson.types.ObjectId;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 public record TaskDto(
-        UUID id,
+        ObjectId id,
         String title,
         String description,
         LocalDateTime dueDate,

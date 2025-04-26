@@ -1,13 +1,13 @@
 package com.Task_Tracker.Task_Tracker.repository;
 
-import com.Task_Tracker.Task_Tracker.domain.entities.Task;
 import com.Task_Tracker.Task_Tracker.domain.entities.TaskList;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface TaskListRepository extends JpaRepository<TaskList, UUID> {
+public interface TaskListRepository extends MongoRepository<TaskList, String> {
 
 }

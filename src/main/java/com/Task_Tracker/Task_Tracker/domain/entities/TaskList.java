@@ -1,66 +1,102 @@
 package com.Task_Tracker.Task_Tracker.domain.entities;
 
-import jakarta.persistence.*;
+
+import jakarta.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.annotation.Collation;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
-@Entity
-@Table(name = "task_lists")
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+
+@Collation
+@Document(collection = "task_lists")
 public class TaskList {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    private String id;
 
-    @Column(name = "title", nullable = false)
+    @Nonnull
     private String title;
 
-    @Column(name = "description")
+    @Nonnull
     private String description;
 
-    @OneToMany(mappedBy = "tasksList", cascade =
-            {CascadeType.REMOVE, CascadeType.PERSIST})
-    private List<Task> tasks;
+    @Nonnull
+    private List<Task> tasks; // 👈 mapping by 'taskList' (the field name inside Task)
 
-    @Column(name = "created", nullable = false)
+    @Nonnull
     private LocalDateTime created;
 
-    @Column(name = "updated", nullable = false)
+    @Nonnull
     private LocalDateTime updated;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TaskList taskList = (TaskList) o;
-        return Objects.equals(id, taskList.id) && Objects.equals(title, taskList.title) && Objects.equals(description, taskList.description) && Objects.equals(tasks, taskList.tasks) && Objects.equals(created, taskList.created) && Objects.equals(updated, taskList.updated);
+    public TaskList(String id, @Nonnull String title, @Nonnull String description, @Nonnull List<Task> tasks, @Nonnull LocalDateTime created, @Nonnull LocalDateTime updated) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.tasks = tasks;
+        this.created = created;
+        this.updated = updated;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description, tasks, created, updated);
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "TaskList{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", tasks=" + tasks +
-                ", created=" + created +
-                ", updated=" + updated +
-                '}';
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Nonnull
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@Nonnull String title) {
+        this.title = title;
+    }
+
+    @Nonnull
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@Nonnull String description) {
+        this.description = description;
+    }
+
+    @Nonnull
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(@Nonnull List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    @Nonnull
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(@Nonnull LocalDateTime created) {
+        this.created = created;
+    }
+
+    @Nonnull
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(@Nonnull LocalDateTime updated) {
+        this.updated = updated;
     }
 }
+
