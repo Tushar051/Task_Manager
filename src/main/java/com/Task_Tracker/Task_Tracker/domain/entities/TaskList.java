@@ -4,23 +4,26 @@ package com.Task_Tracker.Task_Tracker.domain.entities;
 import jakarta.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.annotation.Collation;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 
 @Collation
+
 @Document(collection = "task_lists")
 public class TaskList {
 
     @Id
-    private String id;
+    @Field(targetType = FieldType.OBJECT_ID)
+    private ObjectId id;
 
     @Nonnull
     private String title;
@@ -37,20 +40,12 @@ public class TaskList {
     @Nonnull
     private LocalDateTime updated;
 
-    public TaskList(String id, @Nonnull String title, @Nonnull String description, @Nonnull List<Task> tasks, @Nonnull LocalDateTime created, @Nonnull LocalDateTime updated) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.tasks = tasks;
-        this.created = created;
-        this.updated = updated;
-    }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -97,6 +92,18 @@ public class TaskList {
 
     public void setUpdated(@Nonnull LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    public TaskList(ObjectId id, @Nonnull String title, @Nonnull String description, @Nonnull List<Task> tasks, @Nonnull LocalDateTime created, @Nonnull LocalDateTime updated) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.tasks = tasks;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public TaskList() {
     }
 }
 

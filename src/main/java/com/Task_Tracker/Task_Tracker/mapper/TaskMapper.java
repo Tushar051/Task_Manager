@@ -1,12 +1,13 @@
-package com.Task_Tracker.Task_Tracker.mappers;
+package com.Task_Tracker.Task_Tracker.mapper;
 
-import com.Task_Tracker.Task_Tracker.domain.dto.TaskDto;
 import com.Task_Tracker.Task_Tracker.domain.entities.Task;
+import com.Task_Tracker.Task_Tracker.dto.TaskDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface TaskMapper {
 
     Task fromDto(TaskDto taskDto);
 
     TaskDto toDto(Task task);
-
 }
