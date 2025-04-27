@@ -6,8 +6,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @EnableMongoRepositories(basePackages = "com.Task_Tracker.Task_Tracker.repository")
-@ComponentScan(basePackages = {"com.Task_Tracker.Task_Tracker.mapper"})
-@ComponentScan(basePackages = "com.Task_Tracker.Task_Tracker.controller")
+@ComponentScan(basePackages = {
+					"com.Task_Tracker.Task_Tracker.domain.entities",
+					"com.Task_Tracker.Task_Tracker.services",
+					"com.Task_Tracker.Task_Tracker.dto",
+					"com.Task_Tracker.Task_Tracker.controller"})
+
+
 @SpringBootApplication
 public class TaskTrackerApplication {
 

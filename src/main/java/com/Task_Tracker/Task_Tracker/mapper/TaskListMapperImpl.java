@@ -4,10 +4,12 @@ import com.Task_Tracker.Task_Tracker.domain.entities.Task;
 import com.Task_Tracker.Task_Tracker.domain.entities.TaskList;
 import com.Task_Tracker.Task_Tracker.domain.entities.TaskStatus;
 import com.Task_Tracker.Task_Tracker.dto.TaskListDto;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Component
 public class TaskListMapperImpl implements TaskListMapper{
 
     private final TaskMapper taskMapper;
